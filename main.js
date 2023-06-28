@@ -13,21 +13,13 @@ const app = Vue.createApp({
             const res = await fetch('https://randomuser.me/api')
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data.results[0]);
-
-                this.firstName = data.results[0].name.first,
-                this.lastName = data.results[0].name.last,
-                this.email = data.results[0].email,
-                this.gender = data.results[0].gender,
-                this.thumbnail = data.results[0].picture.large
+                const result = data.results[0];
+                this.firstName = result.name.first,
+                this.lastName = result.name.last,
+                this.email = result.email,
+                this.gender = result.gender,
+                this.thumbnail = result.picture.large
             });
-            // const { results } = await res.json();
-
-            // this.firstName = results[0].name.first,
-            // this.lastName = results[0].name.last,
-            // this.email = results[0].email,
-            // this.gender = results[0].gender,
-            // this.thumbnail = results[0].picture.large
         }
     }
 });
